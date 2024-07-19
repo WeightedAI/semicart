@@ -1,8 +1,7 @@
 import numpy as np
 from tqdm import tqdm
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
-
-from .weights import WeightCalculator
+from db_weights.weights import WeightCalculator
 
 
 class DecisionNode:
