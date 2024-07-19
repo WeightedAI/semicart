@@ -75,7 +75,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License.
 ## Author
 
-Aydin WeightedBasedAI - Vahid Seydi
+Aydin Abedinia - Vahid Seydi
 
 ## Acknowledgments
 For more information, please refer to the Springer article.
