@@ -2,6 +2,10 @@
 
 SemiCart is an algorithm based on the Classification and Regression Trees (CART) that utilizes the weights of test data to enhance prediction accuracy. This algorithm employs methods such as Nearest Neighbor and metrics like Euclidean and Mahalanobis distances to determine these weights.
 
+
+https://pypi.org/project/semicart/
+
+
 ## Features
 
 - Semi-supervised decision tree algorithm.
@@ -26,7 +30,8 @@ python setup.py install
 Here is an example of how to use SemiCart:
 
 ```python
-from semicart import WeightCalculator, SemiCARTClassifier
+from semicart import SemiCARTClassifier
+from db_weights.weights import WeightCalculator
 
 # Calculate weights using Nearest Neighbor
 weights_calculator = WeightCalculator()
@@ -70,9 +75,11 @@ python setup.py sdist bdist_wheel
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
 ## License
 
 This project is licensed under the MIT License.
+
 ## Author
 
 Aydin Abedinia - Vahid Seydi
