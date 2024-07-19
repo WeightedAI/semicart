@@ -13,12 +13,12 @@ SemiCart is an algorithm based on the Classification and Regression Trees (CART)
 You can install SemiCart via pip:
 
 ```bash
-pip install semi_cart
+pip install semicart
 ```
 
 ```bash
-git clone https://github.com/abedinia/semi_cart.git
-cd semi_cart
+git clone https://github.com/WeightedBasedAI/semicart.git
+cd semicart
 python setup.py install
 ```
 
@@ -26,7 +26,7 @@ python setup.py install
 Here is an example of how to use SemiCart:
 
 ```python
-from semi_cart import WeightCalculator, SemiCARTClassifier
+from semicart import WeightCalculator, SemiCARTClassifier
 
 # Calculate weights using Nearest Neighbor
 weights_calculator = WeightCalculator()
@@ -75,7 +75,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 This project is licensed under the MIT License.
 ## Author
 
-Aydin Abedinia - Vahid Seydi
+Aydin WeightedBasedAI - Vahid Seydi
 
 ## Acknowledgments
 For more information, please refer to the Springer article.
