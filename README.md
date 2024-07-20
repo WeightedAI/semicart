@@ -58,6 +58,68 @@ y_pred = tree.predict(X_test)
 results = tuning_params(X_train, X_test, y_train, y_test)
 ```
 
+# Example
+```python
+!pip install semicart
+!pip install db_weights
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+
+from db_weights import WeightCalculator
+from semicart.semicart import SemiCARTClassifier, tuning_params
+
+
+df = pd.read_csv(DATASET_PATH)
+X = np.array(df.iloc[:, :-1].values.tolist())
+y = np.array(df.iloc[:, -1].values.tolist())
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# find best parameters on semi-supervised approach, measurements tuning with num of neighbors and GINI or ENTROPY
+best_weights = tuning_params(X_train, X_test, y_train, y_test, [1,2,3,4,5,6,7,8,8,10])
+
+# train with weights calculated from nearest neighbors 
+weights = WeightCalculator().calculate_weights_nn(X_train, X_test, weight=1)
+
+tree = SemiCARTClassifier(weights=weights,  strategy="GINI")
+tree.fit(X_train, y_train)
+y_pred = tree.predict(X_test)
+
+print("accuracy: ", accuracy_score(y_test, y_pred))
+print("precision: ", precision_score(y_test, y_pred))
+print("recall: ", recall_score(y_test, y_pred))
+print("f1: ", f1_score(y_test, y_pred))
+
+
+# trained with distance measurements which tuned before get params like 2, braycurtis, and GINI
+weights = WeightCalculator().calculate_weights_dist(X_train, X_test, weight=2, measure_type='braycurtis')
+
+tree = SemiCARTClassifier(weights=weights,  strategy="GINI")
+tree.fit(X_train, y_train)
+y_pred = tree.predict(X_test)
+
+print("accuracy: ", accuracy_score(y_test, y_pred))
+print("precision: ", precision_score(y_test, y_pred))
+print("recall: ", recall_score(y_test, y_pred))
+print("f1: ", f1_score(y_test, y_pred))
+
+
+# then compare to decision trees from scikit
+from sklearn.tree import DecisionTreeClassifier
+clf = DecisionTreeClassifier()
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+
+print("accuracy: ", accuracy_score(y_test, y_pred))
+print("precision: ", precision_score(y_test, y_pred))
+print("recall: ", recall_score(y_test, y_pred))
+print("f1: ", f1_score(y_test, y_pred))
+```
+
+
 ## Testing
 To run tests, use the following command:
 
@@ -87,3 +149,4 @@ Aydin Abedinia - Vahid Seydi
 ## Acknowledgments
 For more information, please refer to the Springer article.
 https://link.springer.com/article/10.1007/s13042-024-02161-z
+
