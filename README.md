@@ -92,7 +92,10 @@ print("accuracy: ", accuracy_score(y_test, y_pred))
 print("precision: ", precision_score(y_test, y_pred))
 print("recall: ", recall_score(y_test, y_pred))
 print("f1: ", f1_score(y_test, y_pred))
-
+# accuracy:  0.6231884057971014
+# precision:  0.5161290322580645
+# recall:  0.5925925925925926
+# f1:  0.5517241379310345
 
 # trained with distance measurements which tuned before get params like 2, braycurtis, and GINI
 weights = WeightCalculator().calculate_weights_dist(X_train, X_test, weight=2, measure_type='braycurtis')
@@ -106,6 +109,10 @@ print("precision: ", precision_score(y_test, y_pred))
 print("recall: ", recall_score(y_test, y_pred))
 print("f1: ", f1_score(y_test, y_pred))
 
+# accuracy:  0.7681159420289855
+# precision:  0.7037037037037037
+# recall:  0.7037037037037037
+# f1:  0.7037037037037037
 
 # then compare to decision trees from scikit
 from sklearn.tree import DecisionTreeClassifier
@@ -117,6 +124,13 @@ print("accuracy: ", accuracy_score(y_test, y_pred))
 print("precision: ", precision_score(y_test, y_pred))
 print("recall: ", recall_score(y_test, y_pred))
 print("f1: ", f1_score(y_test, y_pred))
+
+
+# accuracy:  0.6811594202898551
+# precision:  0.5925925925925926
+# recall:  0.5925925925925926
+# f1:  0.5925925925925926
+
 ```
 
 
