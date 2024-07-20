@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="semicart",
-    version="0.0.1",
+    version="0.0.2",
     author="Aydin Abedinia",
     author_email="abedinia.aydin@gmail.com",
     description="Building semi-supervised decision trees with semi-cart algorithm",

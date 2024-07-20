@@ -167,24 +167,27 @@ class SemiCARTClassifier:
         return info_gain
 
 
-def tuning_params(X_train, X_test, y_train, y_test, neighbors) -> dict:
+def tuning_params(x_train, x_test, y_train, y_test, neighbors) -> dict:
     result = {}
     strategies = ["ENTROPY", "GINI"]
     best_score = 0
-    if neighbors is None:
-        neighbors = [1, 2, 3, 4, 5]
 
-    def max_score(result):
-        return max(result["accuracy_score"], result["precision_score"], result["recall_score"], result["f1_score"])
+    def max_score(result_value):
+        return max(
+            result_value["accuracy_score"],
+            result_value["precision_score"],
+            result_value["recall_score"],
+            result_value["f1_score"]
+        )
 
     for n in tqdm(neighbors, desc="Neighbors"):
         weights_calculator = WeightCalculator()
-        weights = weights_calculator.calculate_weights_nn(X_train, X_test, n)
+        weights = weights_calculator.calculate_weights_nn(x_train, x_test, n)
 
-        for strategy_param in tqdm(strategies, desc="Strategies"):
+        for strategy_param in strategies:
             tree = SemiCARTClassifier(weights, strategy=strategy_param)
-            tree.fit(X_train, y_train)
-            y_pred = tree.predict(X_test)
+            tree.fit(x_train, y_train)
+            y_pred = tree.predict(x_test)
 
             result["knn"] = {
                 "method": strategy_param,
@@ -200,11 +203,11 @@ def tuning_params(X_train, X_test, y_train, y_test, neighbors) -> dict:
                 best_result = result["knn"]
                 print(f"New best result: {best_result}")
 
-            for measure in tqdm(weights_calculator.get_measurements(), desc="distance measurements"):
-                weights = weights_calculator.calculate_weights_dist(X_train, X_test, n, measure)
+            for measure in weights_calculator.get_measurements():
+                weights = weights_calculator.calculate_weights_dist(x_train, x_test, n, measure)
                 tree = SemiCARTClassifier(weights, strategy_param)
-                tree.fit(X_train, y_train)
-                y_pred = tree.predict(X_test)
+                tree.fit(x_train, y_train)
+                y_pred = tree.predict(x_test)
 
                 result[measure] = {
                     "method": strategy_param,
@@ -218,6 +221,6 @@ def tuning_params(X_train, X_test, y_train, y_test, neighbors) -> dict:
                 if max_score(result[measure]) > best_score:
                     best_score = max_score(result[measure])
                     best_result = result[measure]
-                    print(f"New best result: {best_result}")
+                    print(f"New best result: {measure} {best_result}")
 
     return result
