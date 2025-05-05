@@ -1,0 +1,54 @@
+\begin{table}[ht]
+\centering
+\caption{Best Semi-CART configurations for F1}
+\begin{tabular}{lcccccc}
+\hline
+Dataset & Test Size & k & Distance & CART & Semi-CART & Improvement \\ \hline
+banknote & 0.1 & 2 & hamming & 0.9926 & 1.0000 & 0.0074 \\
+banknote & 0.2 & 1 & dice & 0.9926 & 0.9926 & 0.0000 \\
+banknote & 0.3 & 6 & manhattan & 0.9877 & 0.9902 & 0.0024 \\
+banknote & 0.4 & 11 & jensenshannon & 0.9889 & 0.9963 & 0.0074 \\
+banknote & 0.5 & 1 & jaccard & 0.9897 & 0.9941 & 0.0044 \\
+banknote & 0.6 & 12 & braycurtis & 0.9816 & 0.9889 & 0.0073 \\
+banknote & 0.7 & 3 & yule & 0.9590 & 0.9874 & 0.0283 \\
+banknote & 0.8 & 10 & jensenshannon & 0.9521 & 0.9760 & 0.0239 \\
+banknote & 0.9 & 6 & jensenshannon & 0.9159 & 0.9445 & 0.0287 \\
+fertility & 0.1 & 1 & jaccard & 0.4118 & 0.4737 & 0.0619 \\
+fertility & 0.2 & 15 & yule & 0.4737 & 0.8198 & 0.3461 \\
+fertility & 0.3 & 5 & jensenshannon & 0.3878 & 0.5957 & 0.2079 \\
+fertility & 0.4 & 14 & euclidean & 0.3939 & 0.4444 & 0.0505 \\
+fertility & 0.5 & 11 & jensenshannon & 0.4444 & 0.7446 & 0.3002 \\
+fertility & 0.6 & 1 & cityblock & 0.4231 & 0.5957 & 0.1726 \\
+fertility & 0.7 & 1 & yule & 0.5333 & 0.6175 & 0.0842 \\
+fertility & 0.8 & 2 & hamming & 0.5257 & 0.6380 & 0.1123 \\
+fertility & 0.9 & 1 & euclidean & 0.4400 & 0.4400 & 0.0000 \\
+wdbc & 0.1 & 3 & sqeuclidean & 0.9230 & 1.0000 & 0.0770 \\
+wdbc & 0.2 & 17 & cosine & 0.9246 & 0.9623 & 0.0377 \\
+wdbc & 0.3 & 7 & cosine & 0.8928 & 0.9812 & 0.0884 \\
+wdbc & 0.4 & 9 & hamming & 0.9478 & 0.9570 & 0.0093 \\
+wdbc & 0.5 & 10 & jaccard & 0.9095 & 0.9513 & 0.0418 \\
+wdbc & 0.6 & 2 & yule & 0.9213 & 0.9463 & 0.0250 \\
+wdbc & 0.7 & 6 & yule & 0.9048 & 0.9120 & 0.0072 \\
+wdbc & 0.8 & 1 & yule & 0.8891 & 0.9164 & 0.0272 \\
+wdbc & 0.9 & 1 & jensenshannon & 0.8785 & 0.9132 & 0.0347 \\
+transfusion & 0.1 & 13 & canberra & 0.6123 & 0.6950 & 0.0827 \\
+transfusion & 0.2 & 14 & canberra & 0.6142 & 0.6832 & 0.0691 \\
+transfusion & 0.3 & 1 & sqeuclidean & 0.5958 & 0.6472 & 0.0514 \\
+transfusion & 0.4 & 14 & canberra & 0.6208 & 0.6412 & 0.0205 \\
+transfusion & 0.5 & 10 & canberra & 0.5737 & 0.6451 & 0.0714 \\
+transfusion & 0.6 & 11 & correlation & 0.5683 & 0.6076 & 0.0393 \\
+transfusion & 0.7 & 11 & sqeuclidean & 0.5554 & 0.6243 & 0.0688 \\
+transfusion & 0.8 & 12 & dice & 0.5801 & 0.6224 & 0.0423 \\
+transfusion & 0.9 & 17 & jaccard & 0.5455 & 0.5902 & 0.0447 \\
+glass & 0.1 & 3 & yule & 0.6429 & 0.8584 & 0.2155 \\
+glass & 0.2 & 17 & hamming & 0.6383 & 0.8421 & 0.2038 \\
+glass & 0.3 & 11 & yule & 0.7497 & 0.7764 & 0.0267 \\
+glass & 0.4 & 18 & hamming & 0.6663 & 0.7744 & 0.1082 \\
+glass & 0.5 & 2 & canberra & 0.6265 & 0.7023 & 0.0758 \\
+glass & 0.6 & 17 & dice & 0.5892 & 0.6608 & 0.0716 \\
+glass & 0.7 & 12 & hamming & 0.5070 & 0.6787 & 0.1717 \\
+glass & 0.8 & 14 & jensenshannon & 0.4656 & 0.5776 & 0.1120 \\
+glass & 0.9 & 3 & hamming & 0.4118 & 0.5770 & 0.1652 \\
+\hline
+\end{tabular}
+\end{table}
