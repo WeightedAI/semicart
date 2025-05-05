@@ -62,6 +62,4 @@ venv.bak/
 
 # Project specific
 benchmark_results/
-# results/
-*.png
 *.csv 
